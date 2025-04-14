@@ -2,39 +2,48 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>我的网站</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            padding: 20px;
         }
         .welcome-container {
             text-align: center;
             background-color: #fff;
-            padding: 40px;
+            padding: 30px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
         }
         h1 {
             color: #333;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 15px;
         }
         p {
             color: #666;
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 25px;
+            line-height: 1.5;
         }
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 1em;
             color: #fff;
             background-color: #007BFF;
@@ -42,36 +51,71 @@
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 200px;
         }
         .btn:hover {
             background-color: #0056b3;
         }
-		.bottom {
-			display: none;
-			position: fixed;
-			bottom: 30px;
-			font-size: 14px;
-			font-weight: 400;
-			color: #999999;
-			text-align: center;
-		}
-		.bottom div a {
-			text-decoration: none;
-			color: #999999;
-		}
+        .bottom {
+            display: block;
+            position: fixed;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            font-size: 12px;
+            font-weight: 400;
+            color: #999999;
+            text-align: center;
+            padding: 0 15px;
+            width: 100%;
+        }
+        .bottom div {
+            margin-bottom: 8px;
+        }
+        .bottom a {
+            text-decoration: none;
+            color: #999999;
+            font-size: 12px;
+            word-break: break-all;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        .bottom img {
+            vertical-align: middle;
+            max-width: 16px;
+            height: auto;
+        }
+        .bottom span {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 480px) {
+            .welcome-container {
+                padding: 20px 15px;
+            }
+            .bottom div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .bottom a {
+                margin: 3px 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="welcome-container">
         <h1>欢迎来到我的网站！</h1>
         <p>感谢您的访问，希望您在这里找到有用的信息。</p>
-        <a href="#" class="btn">了解更多</a>
+        <a href="javascript:void(0)" class="btn">了解更多</a>
     </div>
 	<div class="bottom" id="bottom">
 		<div>
 			<img src="./assets/img/beian.png" style="vertical-align: middle;"/>
 			<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=62100202000579">甘公网安备 62100202000579号</a>
-			<span>&nbsp;&nbsp;</span>
 			<a target="_blank" href="https://beian.miit.gov.cn">陇ICP备2022001148号-1</a>
 		</div>
 		<div>
@@ -83,6 +127,5 @@
             document.getElementById('bottom').style.display = 'block';
         }
     </script>
-</body>
 </body>
 </html>
