@@ -119,10 +119,11 @@
 			<a target="_blank" href="https://beian.miit.gov.cn">陇ICP备2022001148号-1</a>
 		</div>
 		<div>
-			<span>Copyright © 2025 xxx All Rights Reserved</span>
+			<span>Copyright © <span id="year">2025</span> xxx All Rights Reserved</span>
 		</div>
 	</div>
 	<script>
+		document.getElementById('year').textContent = new Date().getFullYear();
         if (window.location.hostname === 'gaoying.fun') {
             document.getElementById('bottom').style.display = 'block';
         }
